@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NumQuest</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="new_game">Nueva partida</string>
+    <string name="press_to_start_new_game">Pulse \"Comenzar\" para iniciar una nueva partida</string>
+    <string name="start">Comenzar</string>
+    <string name="tiempo">Tiempo: </string>
+    <string name="score">Aciertos: </string>
+    <string name="replay">Jugar de nuevo</string>
+    <string name="exit">Salir</string>
+    <string name="game_finished">Juego finalizado</string>
+</resources>

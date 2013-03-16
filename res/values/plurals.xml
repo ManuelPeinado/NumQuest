@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="you_have_achieved_an_score_of">
+        <item quantity="zero">No has conseguido ningún acierto</item>
+        <item quantity="one">Has conseguido sólo un acierto</item>
+        <item quantity="two">Has conseguido sólo dos aciertos</item>
+        <item quantity="other">Has conseguido %d aciertos</item>
+    </plurals>
+</resources>

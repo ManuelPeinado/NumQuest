@@ -13,11 +13,15 @@ import android.widget.TextView;
 
 import com.manuelpeinado.numquest.dialogs.StartDialog;
 import com.manuelpeinado.numquest.dialogs.SummaryDialog;
+import com.manuelpeinado.numquest.gameplay.AbstractGameplay;
+import com.manuelpeinado.numquest.gameplay.ExtendedTimeGameplay;
+import com.manuelpeinado.numquest.gameplay.IGame;
 import com.manuelpeinado.numquest.views.ScoreView;
 import com.manuelpeinado.numquest.views.TimerView;
 
 public class MainActivity extends FragmentActivity implements StartDialog.Listener, TextWatcher, 
-															  TimerView.Listener, SummaryDialog.Listener {
+															  TimerView.Listener, SummaryDialog.Listener,
+															  IGame {
 	private static final int MAX_VALUE = 1000;
 	private Random random = new Random();
 	private int currentValue;
@@ -30,6 +34,7 @@ public class MainActivity extends FragmentActivity implements StartDialog.Listen
 	private View root;
 	private TimerView timerView;
 	private ScoreView scoreView;
+	private AbstractGameplay gameplay = new ExtendedTimeGameplay(this);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +132,7 @@ public class MainActivity extends FragmentActivity implements StartDialog.Listen
 			int value = Integer.parseInt(text);
 			if (value == expectedResult) {
 				scoreView.incrementValue();
+				gameplay.onOperationSolved();
 				nextStep();
 			}
 		} catch (Exception e) {
@@ -163,5 +169,14 @@ public class MainActivity extends FragmentActivity implements StartDialog.Listen
 
 	@Override
 	public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+	}
+
+	//////////////////////////////
+	// Implementaci—n de IGame
+	//////////////////////////////
+	
+	@Override
+	public void extendTime(int millis) {
+		timerView.extendTime(millis);
 	}
 }
